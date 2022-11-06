@@ -76,7 +76,6 @@ public class Daf extends Milah { //"Page" or groupings
         milim.add(milah);
     }
 
-        //read milim
 
     //read kehila
     public void printKehila() {
@@ -90,13 +89,22 @@ public class Daf extends Milah { //"Page" or groupings
         return null;
     }
 
-
-
-
     //delete milah
-
+    public void removeMilah(String name) {
+        Milah removedMilah = findMilah(getName());
+        milim.remove(removedMilah);
+        System.out.println(removedMilah + "has been removed.");
+    }
 
         //ucry
+        static void ucryOptionsM() {
+            System.out.println("Shalom!");
+            System.out.println("Type (C) to create milah");
+            System.out.println("Type (R) to read milim");
+            System.out.println("Type (U) to update milah");
+            System.out.println("Type (Y) to yeet milah");
+            System.out.println("Type (Q) to quit");
+        }
 
 
         //serialize
