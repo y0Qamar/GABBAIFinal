@@ -16,23 +16,82 @@ import java.io.*;
 
 public class Daf extends Milah { //"Page" or groupings
 
+    //decalre addtional variables of Daf
+
+    static String kehila; //Name of list
+    static ArrayList<Milah> milim; //ArrayList of kehila
+
+    //create kehila
+    public Daf(String kehila) {
+        Daf.kehila = kehila;
+        Daf.milim = new ArrayList<>();
+
+    }
+
+    //add milah
+    public void addMilah() {
+        Milah milah = new Milah() {
+            @Override
+            public void setName(String name) {
+                super.setName(name);
+            }
+
+            @Override
+            public void setpNouns(String pNouns) {
+                super.setpNouns(pNouns);
+            }
+
+            @Override
+            public void setShevet(String shevet) {
+                super.setShevet(shevet);
+            }
+
+            @Override
+            public void setSup(String sup) {
+                super.setSup(sup);
+            }
+
+            @Override
+            public void setSaf(String saf) {
+                super.setSaf(saf);
+            }
+
+            @Override
+            public void setAccs(String accs) {
+                super.setAccs(accs);
+            }
+
+            @Override
+            public void setLifeCycle(ArrayList<String> lifeCycle) {
+                super.setLifeCycle(lifeCycle);
+            }
+
+            @Override
+            public void setAge(int age) {
+                super.setAge(age);
+            }
 
 
-  //read kehila
-
-    //find person by name
-
-    //delete milah
+        };
+        milim.add(milah);
 
 
-    //ucry
+        //read milim
 
 
-    //serialize
+        //find person by name
 
-    //deserialize
+        //delete milah
+
+
+        //ucry
+
+
+        //serialize
+
+        //deserialize
+    }
 }
-
 
 
 
