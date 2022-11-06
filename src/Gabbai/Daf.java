@@ -16,7 +16,7 @@ import java.io.*;
 
 public class Daf extends Milah { //"Page" or groupings
 
-    //decalre addtional variables of Daf
+    //declare additional variables of Daf
 
     static String kehila; //Name of list
     static ArrayList<Milah> milim; //ArrayList of kehila
@@ -74,14 +74,26 @@ public class Daf extends Milah { //"Page" or groupings
 
         };
         milim.add(milah);
-
+    }
 
         //read milim
 
+    //read kehila
+    public void printKehila() {
+        for (Milah milah : this.milim) {
+            toString();
+        }
+    }
+    //find person by name
+    public Milah findMilah(String name) {
+        if (getName() == name) ;
+        return null;
+    }
 
-        //find person by name
 
-        //delete milah
+
+
+    //delete milah
 
 
         //ucry
@@ -91,7 +103,7 @@ public class Daf extends Milah { //"Page" or groupings
 
         //deserialize
     }
-}
+
 
 
 
