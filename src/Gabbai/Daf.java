@@ -115,61 +115,127 @@ public class Daf extends Milah { //"Page" or groupings
         System.out.println("Type (Q) to quit");
     }
 
+    //serialize Milah
 
-    //serialize Milim Arraylist
-    public static void serializeArray(ArrayList<Milah> milim) {
-        try {
-            FileOutputStream fileOut = new FileOutputStream("milim.ser");
-            // ^ opening a connect to a new file and allowing to connect
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            // ^ streaming data from an object into a file
-            out.writeObject(milim);
-            // take this object
-            out.close();
-            // close it once we are done with the file
-            fileOut.close();
-            // close it once we are done with the file
-            System.out.println("Serialized data is saved!");
+    public class SerializeMil {
+        public static void serialize(Milah e) {
+            try {
+                //allows us to create a stream to write to a file
+                FileOutputStream fileOut = new FileOutputStream("milim.ser");
+
+                //responsible for streaming data to file
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+
+                //writing object we passed in
+                out.writeObject(e);
+
+//closing the stream
+                out.close();
+
+                // closing the steam
+                fileOut.close();
+
+                System.out.println("serialized data is saved");
+
+                //   i is the name of the io exception
+            } catch (IOException i) {
+                //catches and prints all methods called and allows us to see where code went wrong
+
+                i.printStackTrace();
+                //stacks are last in first out
+            }
+        }
+        //deserialize Milah
+        public static void deSerialize() {
+            // need to read from file object.ser the data from our milim and if possible
+            // create a new milah, otherwise return null;
 
 
-        } catch (IOException i) {
-            i.printStackTrace();
-            // history of all the methods that were called - allows us to see where the code went wrong.
-            //principle of a stack is similar to pringles - last in, first out
+            Milah e = null; //creates an obj type Milah for us to attempt to either pull data from file or return
+
+            try {
+                //read object from a file
+                FileInputStream file = new FileInputStream("milim.ser");
+                //create a connect to file
+                ObjectInputStream in = new ObjectInputStream(file);
+
+                //method for deserialization of object
+                e = (Milah) in.readObject();
+                //makes it type Employee
+
+
+                in.close();
+                file.close();
+
+                System.out.println("Milah has been deserialized.");
+
+                System.out.println(e.getName());
+
+            } catch (IOException i) {
+                i.printStackTrace();
+
+            } catch (ClassNotFoundException c) {
+                c.printStackTrace();
+            }
         }
 
-    }
 
-    //deserialize milim Array
-    public static void deserializeArray() {
+
+        //serialize Milim Arraylist
+        public static void serializeArray(ArrayList<Milah> milim) {
+            try {
+                FileOutputStream fileOut = new FileOutputStream("milim.ser");
+                // ^ opening a connect to a new file and allowing to connect
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                // ^ streaming data from an object into a file
+                out.writeObject(milim);
+                // take this object
+                out.close();
+                // close it once we are done with the file
+                fileOut.close();
+                // close it once we are done with the file
+                System.out.println("Serialized data is saved!");
+
+
+            } catch (IOException i) {
+                i.printStackTrace();
+                // history of all the methods that were called - allows us to see where the code went wrong.
+                //principle of a stack is similar to pringles - last in, first out
+            }
+
+        }
+
+        //deserialize milim Array
+        public static void deserializeArray() {
 // we need to read from the file object.ser the data for our employee
 // and if possible create a new employee otherwise return null
 
-        ArrayList<Milah> daf = new ArrayList<>(); // this create an object of type Milah to receive data from file or return
+            ArrayList<Milah> daf = new ArrayList<>(); // this create an object of type Milah to receive data from file or return
 
-        try {
-            // read object from a file
-            FileInputStream file = new FileInputStream("milim.ser");
-            // create a connect to a file
-            ObjectInputStream in = new ObjectInputStream(file);
+            try {
+                // read object from a file
+                FileInputStream file = new FileInputStream("milim.ser");
+                // create a connect to a file
+                ObjectInputStream in = new ObjectInputStream(file);
 
-            // method for deserialization for an object
-            daf = (ArrayList<Milah>) in.readObject();
-            // ^ read object and convert data to type Employee
+                // method for deserialization for an object
+                daf = (ArrayList<Milah>) in.readObject();
+                // ^ read object and convert data to type Employee
 
-            in.close();
-            file.close();
+                in.close();
+                file.close();
 
-            System.out.println("Object has been deserliazed");
-            System.out.println(milim.size());
+                System.out.println("Object has been deserliazed");
+                System.out.println(milim.size());
 
-        } catch (IOException i) {
-            i.printStackTrace();
+            } catch (IOException i) {
+                i.printStackTrace();
 
-        } catch (ClassNotFoundException c) {
-            c.printStackTrace();
+            } catch (ClassNotFoundException c) {
+                c.printStackTrace();
+            }
+
         }
-
     }
 }
 
