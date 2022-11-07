@@ -106,7 +106,7 @@ public class Daf extends Milah { //"Page" or groupings
     }
 
     //ucry
-    static void ucryOptionsM() {
+    static void ucryOpps() {
         System.out.println("Shalom!");
         System.out.println("Type (C) to create milah");
         System.out.println("Type (R) to read milim");
