@@ -1,88 +1,58 @@
 package Gabbai;
 
-/* The class where milim are creatd, added to groups, CRUD called
+/* The class where Milah are instantiated, added to the Daf, CRUD called
 serialized and deserialized
 
-todo:
- 1) Main -done
- 2) imports--scanner, -done
- 3) joanne the scanner -done
+ todo: Pre Oct Com
+1) Separate out this logic for create so you can it in the loops ,
+ 2) Take out String arrays for now
+ 3) Fix main
+ 4) Commit
+ 5) Make a git
 
- todo: (Before Sept Com) take breaks or you a punk
-  1) Copy past while -done
-  2) edit the pseudocode/comments on while: change all variables and add quti code -done
-  3) Commit -Sept -bout to be done
-  4) edit the meat
-  4B) Commit -Oct
-  5) Double chek
-  6) Run
+ */
+
+
+
 
 
 
  */
 
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Gabbai {
+public class Gabbai extends Shoresh {
 
-   //main
-   public static void main(String[] args) {
-       //declare joanne the scanner
-       Scanner jts = new Scanner(System.in);
-       //while loopin for crud nuggets
-       Daf.ucryOpps();
-       String reply = jts.nextLine();
+    //main
+    public static void main(String[] args) {
+
+        //declares new daf (congregation)
+        Daf kehila = new Daf();
+        //declare joanne the scanner
+        Scanner jts = new Scanner(System.in);
+        //while loopin for crud nuggets
+        Daf.ucryOpps();
+        String reply = jts.nextLine();
 
 
-       //NOTE TO SELF: Before you even start this, know that it daunts you. Take breaks, frfr.
-       while (!reply.equalsIgnoreCase("Q")) {
+        //NOTE TO SELF: Before you even start this, know that it daunts you. Take breaks, frfr.
+        while (!reply.equalsIgnoreCase("Q")) {
 
-           //Create
-           if (reply.equalsIgnoreCase("C")) {
+            //CAM!!!! - Refactored create after I asked you about it.
 
-               //Asks person's name
-               System.out.println("Please enter person's name:");
-               /* add conditions--is only numbers
-                */
-               String name = jts.nextLine();
+            if (reply.equalsIgnoreCase("C")) {
+                 Daf.addMilah();
+                Daf.ucryOpps();
+                reply = jts.nextLine();
 
-               //asks int age
-               System.out.println("Please Enter Product Name");
-               String pName = jts.nextLine();
 
-               //String pNouns
-               System.out.println("Please Enter Product Cost ");
-               double pCost = jts.nextDouble();
-               jts.nextLine();
-
-               //String Shevet
-               System.out.println("Is Product in Stock? (True) or (False)");
-               boolean inStock = jts.nextBoolean();
-               jts.nextLine();
-
-               //String sup
-
-               //String saf
-
-               //String accs
-
-               //Add Arraylsit<String> lifeCycle;
-
-               //creates new person
-               Product newProduct = new Product(pName, pID, pCost, inStock);
-               targay.products.add(newProduct);
-               targay.printInventory();
-               //asks same Question again until user inputs Q
-               ucryOptionsM();
-               reply = jts.nextLine();
-
-               //Add read method
            } else if (reply.equalsIgnoreCase("R")) {
-               targay.printInventory();
+                kehila.printKehila();
                System.out.println("What do you want to do next?");
-               ucryOptionsM();
+               Daf.ucryOpps();
                reply = jts.nextLine();
-
                //Add Find by name
            } else if (reply.equalsIgnoreCase("U")) {
                System.out.println("Please enter product ID Number");
@@ -151,3 +121,5 @@ public class Gabbai {
    }
 
 }
+
+                 */

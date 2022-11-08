@@ -13,96 +13,106 @@ package Gabbai;
 
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Scanner;
 
-public class Daf extends Milah { //"Page" or groupings
+public class Daf extends Shoresh { //"Page" or groupings
 
     //declare additional variables of Daf
+    static ArrayList<Shoresh> milim; //ArrayList of kehila
 
-    static String kehila; //Name of list
-    static ArrayList<Milah> milim; //ArrayList of kehila
+   static Scanner jts = new Scanner(System.in);
+
 
     static int kehilaCounter = 1; //It starts at one because I'm always in it.
 
-    //create kehila
-    public Daf(String kehila) {
-        Daf.kehila = kehila;
+    //creating a daf
+    public Daf() {
         Daf.milim = new ArrayList<>();
 
     }
 
     //add milah
-    public void addMilah() {
+    static void addMilah() {
 
-        Milah milah = new Milah() {
+        System.out.println("Please enter person's name:");
+        /* add conditions--is only numbers
+         */
+        String name = jts.nextLine();
+        Shoresh milah = new Milah() {
             @Override
             public void setName(String name) {
                 super.setName(name);
+                System.out.println("Please enter " + getName() + "'s pronouns (where applicable)");
             }
 
             @Override
             public void setpNouns(String pNouns) {
+                pNouns = jts.nextLine();
                 super.setpNouns(pNouns);
-            }
+                System.out.println("Please enter " + getName() + "'s support needs.");
 
-            @Override
-            public void setShevet(String shevet) {
-                super.setShevet(shevet);
             }
 
             @Override
             public void setSup(String sup) {
+                sup = jts.nextLine();
                 super.setSup(sup);
+                System.out.println("Please enter " + getName() + "'s safety needs.");
             }
 
             @Override
             public void setSaf(String saf) {
+                saf = jts.nextLine();
                 super.setSaf(saf);
+                System.out.println("Please enter " + getName() + "'s access needs.");
             }
 
             @Override
             public void setAccs(String accs) {
+                accs = jts.nextLine();
                 super.setAccs(accs);
+                System.out.println("Please enter " + getName() + "'s age");
             }
 
-            @Override
-            public void setLifeCycle(ArrayList<String> lifeCycle) {
-                super.setLifeCycle(lifeCycle);
-            }
 
             @Override
             public void setAge(int age) {
+                age = jts.nextInt();
+                jts.nextLine();
                 super.setAge(age);
+
             }
 
-
         };
+        System.out.println("Thank you.");
         milim.add(milah);
         kehilaCounter++;
+
     }
 
 
     //read kehila
     public void printKehila() {
-        for (Milah milah : this.milim) {
+        for (Shoresh shoresh : this.milim) {
             toString();
         }
     }
 
     //find person by name
-    public Milah findMilah(String name) {
+    public Shoresh findMilah(String name) {
         if (getName() == name) ;
         return null;
     }
 
     //delete milah
     public void removeMilah(String name) {
-        Milah removedMilah = findMilah(getName());
-        milim.remove(removedMilah);
+        Shoresh removedShoresh = findMilah(getName());
+        milim.remove(removedShoresh);
 
         kehilaCounter--;
 
         //confirms
-        System.out.println(removedMilah + "has been removed.");
+        System.out.println(removedShoresh + "has been removed.");
     }
 
     //ucry
@@ -118,7 +128,7 @@ public class Daf extends Milah { //"Page" or groupings
     //serialize Milah
 
     public class SerializeMil {
-        public static void serialize(Milah e) {
+        public static void serialize(Shoresh e) {
             try {
                 //allows us to create a stream to write to a file
                 FileOutputStream fileOut = new FileOutputStream("milim.ser");
@@ -151,7 +161,7 @@ public class Daf extends Milah { //"Page" or groupings
             // create a new milah, otherwise return null;
 
 
-            Milah e = null; //creates an obj type Milah for us to attempt to either pull data from file or return
+            Shoresh e = null; //creates an obj type Milah for us to attempt to either pull data from file or return
 
             try {
                 //read object from a file
@@ -160,7 +170,7 @@ public class Daf extends Milah { //"Page" or groupings
                 ObjectInputStream in = new ObjectInputStream(file);
 
                 //method for deserialization of object
-                e = (Milah) in.readObject();
+                e = (Shoresh) in.readObject();
                 //makes it type Employee
 
 
@@ -182,7 +192,7 @@ public class Daf extends Milah { //"Page" or groupings
 
 
         //serialize Milim Arraylist
-        public static void serializeArray(ArrayList<Milah> milim) {
+        public static void serializeArray(ArrayList<Shoresh> milim) {
             try {
                 FileOutputStream fileOut = new FileOutputStream("milim.ser");
                 // ^ opening a connect to a new file and allowing to connect
@@ -210,7 +220,7 @@ public class Daf extends Milah { //"Page" or groupings
 // we need to read from the file object.ser the data for our employee
 // and if possible create a new employee otherwise return null
 
-            ArrayList<Milah> daf = new ArrayList<>(); // this create an object of type Milah to receive data from file or return
+            ArrayList<Shoresh> daf = new ArrayList<>(); // this create an object of type Milah to receive data from file or return
 
             try {
                 // read object from a file
@@ -219,7 +229,7 @@ public class Daf extends Milah { //"Page" or groupings
                 ObjectInputStream in = new ObjectInputStream(file);
 
                 // method for deserialization for an object
-                daf = (ArrayList<Milah>) in.readObject();
+                daf = (ArrayList<Shoresh>) in.readObject();
                 // ^ read object and convert data to type Employee
 
                 in.close();

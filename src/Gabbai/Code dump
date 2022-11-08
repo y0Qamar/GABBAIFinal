@@ -1,0 +1,35 @@
+  //Asks person's name
+               System.out.println("Please enter person's name:");
+               /* add conditions--is only numbers
+                */
+             String name = jts.nextLine();
+               //asks int age
+               System.out.println("Please enter " + name +"'s age if applicable" );
+               int age = jts.nextInt();
+               jts.nextLine();
+
+               //String pNouns
+               System.out.println("Please enter" + name="'s pronouns (where applicable): ");
+               String pNouns = jts.nextLine();
+
+               //String Shevet
+               System.out.println("Shevet: " + name + "'s people, Care-takerss, PCAs, guardians");
+               String Shevet = jts.nextLine();
+
+               //String saf
+               System.out.println("What are" + name + "'s safety needs?");
+               String saf = jts.nextLine();
+
+               //String sup
+               System.out.println("What are" + name + "'s support needs?");
+               String sup = jts.nextLine();
+
+               //String accs
+               System.out.println("What are" + name + "'s access neeeds?");
+               String accs = jts.nextLine();
+
+               //Add Arraylsit<String> lifeCycle;
+               System.out.println("Please enter known life cycle events");
+            ArrayList<String> lifeCycle = new ArrayList<>();
+            String life = jts.nextLine();
+            lifeCycle.add(life);
