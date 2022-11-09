@@ -1,10 +1,5 @@
-This weekend challenge is focused on adding Object Serialization to our OOP projects and utilizing git.
-Step 1: Choose whether you're going to do a new OOP project or refactor an old one
-Step 2: Add a git repo to the project (or confirm that you have one already set up)
-Step 3: Make an initial commit of your project as it stands (or from the beginning)
-git add .
-git commit -m "initial commit"
-Step 4: Confirm the commit was made by using the git log
+
+ commit was made by using the git log
 git log
 Step 5 - beyond:  repeat the git commands: git add .   git commit -m "some message"  as you continue to build your project based on the following specs:
 Your project should implement at least 3 classes

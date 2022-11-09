@@ -30,6 +30,6 @@
 
                //Add Arraylsit<String> lifeCycle;
                System.out.println("Please enter known life cycle events");
-            ArrayList<String> lifeCycle = new ArrayList<>();
+            ArrayList<String> lifeCycle = new ArrayList<>()
             String life = jts.nextLine();
             lifeCycle.add(life);

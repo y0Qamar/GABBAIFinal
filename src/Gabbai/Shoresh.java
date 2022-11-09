@@ -46,7 +46,7 @@ todo:
 abstract class Shoresh {
 
     //made the following private to demonstrate encapsulation because I only want certain methods to be able to approach this data
-    private String name; //name
+    private static String name; //name
 
     int age;
     private String pNouns; //pronouns
@@ -130,17 +130,5 @@ abstract class Shoresh {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Milah{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", pNouns='" + pNouns + '\'' +
-                ", shevet='" + shevet + '\'' +
-                ", sup='" + sup + '\'' +
-                ", saf='" + saf + '\'' +
-                ", accs='" + accs + '\'' +
-                '}';
-    }
 }
 

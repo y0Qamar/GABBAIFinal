@@ -7,12 +7,12 @@ Milah (Now shoresh)
 3) getter - done
 4) setter
 
-todo: Gabbai
+ Gabbai
  1) Main -done
  2) imports--scanner, -done
  3) joanne the scanner -done
 
- todo: Gabbai
+ Gabbai
  (Before Sept Com) take breaks or you a punk
   1) Copy past while -done
   2) edit the pseudocode/comments on while: change all variables and add quti code -done
@@ -21,5 +21,17 @@ todo: Gabbai
   4B) Commit -Oct
   5) Double chek
   6) Run
+
+todo: Pre Oct Com Gabbai
+1) Separate out this logic for create so you can it in the loops ,
+ 2) Take out String arrays for now
+ 3) Fix main
+ 4) Commit
+ 5) Make a git
+
+ Todo: Pre nonary (penultimate) Gabbi and Daf
+ 1) Finish separating the logic
+ 2) Comment clean up
+ 3) Write in quit
 
 

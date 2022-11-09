@@ -15,15 +15,25 @@ import java.util.ArrayList;
 import java.io.*;
 import java.util.Scanner;
 
-public class Daf extends Shoresh { //"Page" or groupings
+public class Daf extends Milah { //"Page" or groupings
 
     //declare additional variables of Daf
-    static ArrayList<Shoresh> milim; //ArrayList of kehila
+    static ArrayList<Milah> milim; //ArrayList of kehila
 
-   static Scanner jts = new Scanner(System.in);
+    static Scanner jts = new Scanner(System.in);
 
 
-    static int kehilaCounter = 1; //It starts at one because I'm always in it.
+    static int kehilaCounter = 2; //It starts at two because I'm always in it.
+
+
+    //ucry
+    public void ucryOpps() {
+        System.out.println("Type (C) to create milah");
+        System.out.println("Type (R) to read milim");
+        System.out.println("Type (U) to update milah");
+        System.out.println("Type (Y) to yeet milah");
+        System.out.println("Type (Q) to quit");
+    }
 
     //creating a daf
     public Daf() {
@@ -38,7 +48,7 @@ public class Daf extends Shoresh { //"Page" or groupings
         /* add conditions--is only numbers
          */
         String name = jts.nextLine();
-        Shoresh milah = new Milah() {
+        Milah milah = new Milah() {
             @Override
             public void setName(String name) {
                 super.setName(name);
@@ -84,10 +94,11 @@ public class Daf extends Shoresh { //"Page" or groupings
             }
 
         };
-        System.out.println("Thank you.");
-        milim.add(milah);
+        Daf.milim.add(milah);
         kehilaCounter++;
-
+        System.out.println("The following person was added to the Milim:");
+        milah.toString();
+        System.out.println("Mazal tov! We have" + kehilaCounter + " milim in our Kehila.");
     }
 
 
@@ -99,36 +110,99 @@ public class Daf extends Shoresh { //"Page" or groupings
     }
 
     //find person by name
-    public Shoresh findMilah(String name) {
+    public Milah findMilah(String name) {
         if (getName() == name) ;
         return null;
     }
 
-    //delete milah
-    public void removeMilah(String name) {
-        Shoresh removedShoresh = findMilah(getName());
-        milim.remove(removedShoresh);
+
+    // Update Milah
+    public void updateMilah() {
+        System.out.println("Please enter name");
+        String name = jts.nextLine();
+        this.findMilah(name);
+        System.out.println("What information would you like to change?");
+        System.out.println("Type (name), (pronouns), (support), (access), (safety).");
+        System.out.println("Type (Y) to exit");
+        String change = jts.nextLine();
+
+        if (change.equalsIgnoreCase("name")) {
+            System.out.println("What would you like to change the name to?");
+            String newName = jts.nextLine();
+            this.setName(newName);
+            System.out.println("--Name changed--");
+            System.out.println(newName);
+            System.out.println("What else would you like to change?");
+            System.out.println("Type (Y) if there are no more changes.");
+            change = jts.nextLine();
+
+            //change pronouns
+        } else if (change.equalsIgnoreCase("pronouns")) {
+            System.out.println("What would you like to change the pronouns to?");
+            String newPNouns = jts.nextLine();
+            this.setpNouns(newPNouns);
+            System.out.println("--Pronouns changed--");
+            System.out.println(this.getName() + "'s pronouns have changed to" + newPNouns);
+            System.out.println("What else would you like to change?");
+            System.out.println("Type (Q) if there are no more changes.");
+            change = jts.nextLine();
+
+            //change support
+        } else if (change.equalsIgnoreCase("support")) {
+            System.out.println("Here are" + this.getName() + "'s current support needs: " + this.getSup());
+            System.out.println("How would you like to change them?");
+            String newSupp = jts.nextLine();
+            this.setSup(newSupp);
+            System.out.println("--Support needs changed--");
+            System.out.println("What else would you like to change?");
+            System.out.println("Type (Q) if there are no more changes.");
+            change = jts.nextLine();
+
+            //access
+        } else if (change.equalsIgnoreCase("Access")) {
+            System.out.println("Here are" + this.getName() + "'s current access needs: " + this.getAccs());
+            System.out.println("How would you like to change them?");
+            String newAccs = jts.nextLine();
+            this.setAccs(newAccs);
+            System.out.println("--Support needs changed--");
+            System.out.println("What else would you like to change?");
+            System.out.println("Type (Q) if there are no more changes.");
+            change = jts.nextLine();
+
+            // safety
+        } else if (change.equalsIgnoreCase("Safety")) {
+            System.out.println("Here are" + this.getName() + "'s current support needs: " + this.getSup());
+            System.out.println("How would you like to change them?");
+            String newSupp = jts.nextLine();
+            this.setSup(newSupp);
+            System.out.println("--Support needs changed--");
+            System.out.println("What else would you like to change?");
+            System.out.println("Type (Q) if there are no more changes.");
+            change = jts.nextLine();
+
+            //Makes sure of right input
+        } else {
+            System.out.println("Type (name), (pronouns), (support), (access), (safety).\" or (price)");
+            change = jts.nextLine();
+        }
+    }
+
+
+    //delete Milah
+    public void removeMilah() {
+        Milah removedMilah = findMilah(getName());
+        Daf.milim.remove(removedMilah);
 
         kehilaCounter--;
 
         //confirms
-        System.out.println(removedShoresh + "has been removed.");
-    }
-
-    //ucry
-    static void ucryOpps() {
-        System.out.println("Shalom!");
-        System.out.println("Type (C) to create milah");
-        System.out.println("Type (R) to read milim");
-        System.out.println("Type (U) to update milah");
-        System.out.println("Type (Y) to yeet milah");
-        System.out.println("Type (Q) to quit");
+        System.out.println(removedMilah + "has been removed.");
     }
 
     //serialize Milah
 
     public class SerializeMil {
-        public static void serialize(Shoresh e) {
+        public static void serialize(Milah e) {
             try {
                 //allows us to create a stream to write to a file
                 FileOutputStream fileOut = new FileOutputStream("milim.ser");
@@ -145,7 +219,7 @@ public class Daf extends Shoresh { //"Page" or groupings
                 // closing the steam
                 fileOut.close();
 
-                System.out.println("serialized data is saved");
+                System.out.println("Milah is saved");
 
                 //   i is the name of the io exception
             } catch (IOException i) {
@@ -161,7 +235,7 @@ public class Daf extends Shoresh { //"Page" or groupings
             // create a new milah, otherwise return null;
 
 
-            Shoresh e = null; //creates an obj type Milah for us to attempt to either pull data from file or return
+            Milah e = null; //creates an obj type Milah for us to attempt to either pull data from file or return
 
             try {
                 //read object from a file
@@ -170,15 +244,14 @@ public class Daf extends Shoresh { //"Page" or groupings
                 ObjectInputStream in = new ObjectInputStream(file);
 
                 //method for deserialization of object
-                e = (Shoresh) in.readObject();
+                e = (Milah) in.readObject();
                 //makes it type Employee
 
 
                 in.close();
                 file.close();
 
-                System.out.println("Milah has been deserialized.");
-
+                System.out.println("Milah has been loaded.");
                 System.out.println(e.getName());
 
             } catch (IOException i) {
@@ -192,7 +265,7 @@ public class Daf extends Shoresh { //"Page" or groupings
 
 
         //serialize Milim Arraylist
-        public static void serializeArray(ArrayList<Shoresh> milim) {
+        public static void saveKehila(ArrayList<Milah> milim) {
             try {
                 FileOutputStream fileOut = new FileOutputStream("milim.ser");
                 // ^ opening a connect to a new file and allowing to connect
@@ -220,7 +293,7 @@ public class Daf extends Shoresh { //"Page" or groupings
 // we need to read from the file object.ser the data for our employee
 // and if possible create a new employee otherwise return null
 
-            ArrayList<Shoresh> daf = new ArrayList<>(); // this create an object of type Milah to receive data from file or return
+            ArrayList<Milah> daf = new ArrayList<>(); // this create an object of type Milah to receive data from file or return
 
             try {
                 // read object from a file
@@ -229,7 +302,7 @@ public class Daf extends Shoresh { //"Page" or groupings
                 ObjectInputStream in = new ObjectInputStream(file);
 
                 // method for deserialization for an object
-                daf = (ArrayList<Shoresh>) in.readObject();
+                daf = (ArrayList<Milah>) in.readObject();
                 // ^ read object and convert data to type Employee
 
                 in.close();
