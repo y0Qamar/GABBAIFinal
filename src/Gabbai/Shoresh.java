@@ -1,46 +1,4 @@
 package Gabbai;
-/* Your project should implement at least 3 classes
-
-        Class attributes should be encapsulated (private with getters/setters)
-
-        Your manager class should have all 4 CRUD methods implemented
-
-        Your manager class should implement saveData() and loadData() methods and your user interface should give the user
-        an option to save before quitting and to load when first starting the program.
-
-        Both methods should serialize and deserialize your class data.
-        You should strive to have at least 10 commits in your git log by the end of this challenge.
-
-        Personal extra credit: Tzadaka account as well.
-
- */
-
-/* the class where we establish the parameters for
-people important to the Kehila.
-All congregant info needs to be set to private
-
-Pseudocode: This is for me as a rabbi to keep information donor/constituent data-bases can't.
-This information once collected will not be sold, used for commercial purposes,
-Or seen by anyone other than me.
-
-Shoresh - Kehila member abstract class - ever single member of the Kehila
-Getter, setters
-Milah class extends Shoresh
-
-getter
-setter
-Member counter - Very very important! but it always has to report 1 off
-
-
-todo:
- 1)  milim variables - String name String Shevet String Jewish Birthday int age String addy (kid method no)
- String lifeCycle (abstract)
-2) Milah - person, private
-3) getter - done
-4) setter
-
-
- */
 
 //Made abstract to establish default implementation
 abstract class Shoresh {

@@ -31,7 +31,7 @@ public class Gabbai extends Daf {
 
             //Create
             if (reply.equalsIgnoreCase("C")) {
-                kehila.addMilah();
+                addMilah();
                 kehila.ucryOpps();
                 reply = jts.nextLine();
 

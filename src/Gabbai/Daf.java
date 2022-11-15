@@ -293,8 +293,6 @@ public class Daf extends Milah { //"Page" or groupings
 // we need to read from the file object.ser the data for our employee
 // and if possible create a new employee otherwise return null
 
-            ArrayList<Milah> daf = new ArrayList<>(); // this create an object of type Milah to receive data from file or return
-
             try {
                 // read object from a file
                 FileInputStream file = new FileInputStream("milim.ser");
@@ -302,7 +300,7 @@ public class Daf extends Milah { //"Page" or groupings
                 ObjectInputStream in = new ObjectInputStream(file);
 
                 // method for deserialization for an object
-                daf = (ArrayList<Milah>) in.readObject();
+                milim = (ArrayList<Milah>) in.readObject();
                 // ^ read object and convert data to type Employee
 
                 in.close();
